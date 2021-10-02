@@ -5,14 +5,12 @@ using UnityEngine.EventSystems;
 
 public class stabilityScript2 : MonoBehaviour
 {
+    // how an object moves erraticly can be decided in the inspector
     public bool canRotate;
     public bool canMove;
-
     public bool canScale;
-    public bool isRotating;
-    public bool isMoving;
 
-    public bool isClicking;
+    public bool isClicking; // if object is being clicked
     public float timer;
 
     public Vector2 erraticTimerRange;
@@ -28,25 +26,61 @@ public class stabilityScript2 : MonoBehaviour
 
     public float mouseDetectDistance;
 
-    private Vector3 screenPos;
-    private Vector3 worldPos;
+    private Vector3 mouseScreenPos;
+    private Vector3 mouseWorldPos;
 
     public GameObject indicatorCircle;
 
     private void Awake()
     {
-        setSpeed();
-        originalScale = gameObject.transform.localScale;
-        isClicking = false;
+        setRotationSpeed(); // on awake, set rotation speed for the first time
+        originalScale = gameObject.transform.localScale; // save a copy of the original scale
+        isClicking = false; 
 
     }
 
+    private void FixedUpdate()
+    {
+        if (isClicking)
+        {
+            transform.position = mouseWorldPos;
+        }
+
+        if (timer > 0)
+        {
+            if (canRotate)
+            {
+                rotateObject(rotationSpeed);
+            }
+
+            if (canMove)
+            {
+
+            }
+
+            timer -= timing;
+        }
+
+        else
+        {
+            if (canRotate)
+            {
+                setRotationSpeed();
+
+            }
+            if (canScale)
+            {
+                scaleObject();
+            }
+            timer = Random.Range(erraticTimerRange.x, erraticTimerRange.y);
+        }
+    }
     private void Update()
     {
-        screenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
-        worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-        
-        if (Vector2.Distance(worldPos, gameObject.transform.position) < mouseDetectDistance)
+        mouseScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
+        mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+
+        if (Vector2.Distance(mouseWorldPos, gameObject.transform.position) < mouseDetectDistance)
         {
             indicatorCircle.SetActive(true);
             GetComponent<Renderer>().material.SetColor("_Color", Color.red);
@@ -55,7 +89,8 @@ public class stabilityScript2 : MonoBehaviour
                 isClicking = true;
             }
         }
-        else {
+        else
+        {
             indicatorCircle.SetActive(false);
             GetComponent<Renderer>().material.SetColor("_Color", Color.white);
         }
@@ -75,7 +110,7 @@ public class stabilityScript2 : MonoBehaviour
             timing = Time.fixedDeltaTime * .01f;
         }
     }
-    private void setSpeed()
+    private void setRotationSpeed()
     {
 
         rotationSpeed = Random.Range(speedRange.x, speedRange.y);
@@ -90,52 +125,18 @@ public class stabilityScript2 : MonoBehaviour
                 break;
         }
     }
-    private void FixedUpdate()
-    {
-        if (isClicking) {
-            transform.position = worldPos;
-        }
 
-        if (timer > 0)
-        {
-            if (canRotate)
-            {
-                rotation(rotationSpeed);
-            }
-
-            if (canMove)
-            {
-
-            }
-
-            timer -= timing;
-        }
-
-        else
-        {
-            if (canRotate)
-            {
-                setSpeed();
-
-            }
-            if (canScale)
-            {
-                scale();
-            }
-            timer = Random.Range(erraticTimerRange.x, erraticTimerRange.y);
-        }
-    }
-    public void rotation(float rotationSpeed)
+    public void rotateObject(float rotationSpeed)
     {
 
         gameObject.transform.Rotate(Vector3.forward * timing * rotationSpeed);
     }
-    public void scale()
+    public void scaleObject()
     {
         gameObject.transform.localScale = originalScale * Random.Range(scaleRange.x, scaleRange.y);
     }
 
 
 
-    
+
 }

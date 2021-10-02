@@ -12,11 +12,13 @@ public class radiusIndicatorScript : MonoBehaviour
     }
 
     private void Awake() {
+        //set the circle size to match the mouse detection distance
         gameObject.transform.localScale = Vector3.one * (mainObject.GetComponent<stabilityScript2>().mouseDetectDistance + 3);
     }
     // Update is called once per frame
     void Update()
     {
+        // this objects position will the main objects position
         transform.position = mainObject.transform.position;
     }
 }
