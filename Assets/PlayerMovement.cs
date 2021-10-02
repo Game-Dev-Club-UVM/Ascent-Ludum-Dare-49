@@ -6,11 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private Transform ceilingCheck;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundObjects;
+    [SerializeField] private float checkRadius;
 
     private Rigidbody2D rb;
     private bool facingRight = true;
     private float moveDirection;
     private bool isJumping = false;
+    private bool isGrounded = false;
 
     // Awake is called before the Start, in the step phase in untiy
     private void Awake()
@@ -30,12 +35,13 @@ public class PlayerMovement : MonoBehaviour
         Inputs();
 
         Animations();
-
     }
 
 	//Physics and movement Update
     void FixedUpdate()
 	{
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundObjects);
+
         Move();
     }
 
@@ -64,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
 	{
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
-		if (isJumping)
+		if (isJumping && isGrounded)
 		{
             rb.AddForce(new Vector2(0f, jumpForce));
             isJumping = false;
