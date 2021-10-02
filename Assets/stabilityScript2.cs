@@ -35,7 +35,7 @@ public class stabilityScript2 : MonoBehaviour
     {
         setRotationSpeed(); // on awake, set rotation speed for the first time
         originalScale = gameObject.transform.localScale; // save a copy of the original scale
-        isClicking = false; 
+        isClicking = false;
 
     }
 
@@ -43,21 +43,19 @@ public class stabilityScript2 : MonoBehaviour
     {
         if (isClicking)
         {
-            transform.position = mouseWorldPos;
+            if (transform.position != mouseWorldPos)
+            {
+                transform.position = Vector3.Lerp(transform.position, mouseWorldPos, 0.1f);
+            }
+            //transform.position = mouseWorldPos; // if object being clicked, position = mouse position
         }
 
         if (timer > 0)
         {
             if (canRotate)
             {
-                rotateObject(rotationSpeed);
+                rotateObject(rotationSpeed); // while the timer hasn't reach 0 and we can rotate, rotate the object
             }
-
-            if (canMove)
-            {
-
-            }
-
             timer -= timing;
         }
 
@@ -65,12 +63,11 @@ public class stabilityScript2 : MonoBehaviour
         {
             if (canRotate)
             {
-                setRotationSpeed();
-
+                setRotationSpeed(); // when timer hits 0 set a new rotaton speed
             }
             if (canScale)
             {
-                scaleObject();
+                scaleObject();  // when timer hits 0 set a new scale for the object
             }
             timer = Random.Range(erraticTimerRange.x, erraticTimerRange.y);
         }
@@ -83,20 +80,18 @@ public class stabilityScript2 : MonoBehaviour
         if (Vector2.Distance(mouseWorldPos, gameObject.transform.position) < mouseDetectDistance)
         {
             indicatorCircle.SetActive(true);
-            GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                GetComponent<Renderer>().material.SetColor("_Color", Color.black);
                 isClicking = true;
             }
-        }
-        else
-        {
+        } else if (!isClicking) {
             indicatorCircle.SetActive(false);
-            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
             isClicking = false;
         }
 
@@ -107,7 +102,7 @@ public class stabilityScript2 : MonoBehaviour
         }
         else
         {
-            timing = Time.fixedDeltaTime * .01f;
+            timing = Time.fixedDeltaTime * .1f;
         }
     }
     private void setRotationSpeed()
