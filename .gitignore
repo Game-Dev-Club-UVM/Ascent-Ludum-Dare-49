@@ -58,3 +58,6 @@ crashlytics-build.properties
 # Logs
 AssetImportWorker0.log
 AssetImportWorker0-prev.log
+UserSettings/EditorUserSettings.asset
+Logs/AssetImportWorker0-prev.log
+*.log
