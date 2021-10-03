@@ -31,12 +31,15 @@ public class stabilityScript2 : MonoBehaviour
 
     public GameObject indicatorCircle;
 
+    public Collider2D objCollider;
+
     private void Awake()
     {
         setRotationSpeed(); // on awake, set rotation speed for the first time
         originalScale = gameObject.transform.localScale; // save a copy of the original scale
         isClicking = false;
-
+        canRotate = true;
+        objCollider = GetComponent<Collider2D>();
     }
 
     private void FixedUpdate()
@@ -47,7 +50,6 @@ public class stabilityScript2 : MonoBehaviour
             {
                 transform.position = Vector3.Lerp(transform.position, mouseWorldPos, 0.1f);
             }
-            //transform.position = mouseWorldPos; // if object being clicked, position = mouse position
         }
 
         if (timer > 0)
@@ -74,35 +76,56 @@ public class stabilityScript2 : MonoBehaviour
     }
     private void Update()
     {
+        // convert mouse pos to world space
         mouseScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
         mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-
+        
+        // if mouse is within the specified radius of the object...
         if (Vector2.Distance(mouseWorldPos, gameObject.transform.position) < mouseDetectDistance)
         {
             indicatorCircle.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                GetComponent<Renderer>().material.SetColor("_Color", Color.black);
-                isClicking = true;
+
+            // if object is being right clicked...
+            if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                
+                objCollider.enabled = !objCollider.enabled;
+                // go into slow motion
+                canRotate = !canRotate;
             }
-        } else if (!isClicking) {
+
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+                GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+                objCollider.enabled = false;
+                isClicking = true;   
+            }
+        } else if (!isClicking){
             indicatorCircle.SetActive(false);
+            objCollider.enabled = true;
         }
 
+        if (!canRotate) {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.black);  
+            objCollider.enabled = true;
+        }
+ 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            objCollider.enabled = true;
             isClicking = false;
         }
 
-
+        if (!isClicking && canRotate) {
+            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            objCollider.enabled = true;
+        }
         if (!isClicking)
         {
             timing = Time.fixedDeltaTime;
-        }
-        else
-        {
+            
+        } else {
             timing = Time.fixedDeltaTime * .1f;
+            
         }
     }
     private void setRotationSpeed()
