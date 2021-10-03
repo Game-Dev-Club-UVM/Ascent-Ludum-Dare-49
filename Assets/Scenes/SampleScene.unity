@@ -755,6 +755,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5172902723070979730, guid: 8117b8630f9e95f4d8353a039167a4c9, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172902723070979730, guid: 8117b8630f9e95f4d8353a039167a4c9, type: 3}
       propertyPath: speedRange.x
       value: 100
       objectReference: {fileID: 0}
