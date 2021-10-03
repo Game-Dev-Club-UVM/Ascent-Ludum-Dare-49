@@ -150,7 +150,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8cb416aa52e03347907ce72213446ad, type: 2}
+  - {fileID: 2100000, guid: 1f8d14e63735d934c97a899c8aca032c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   scaleRange: {x: 0.9, y: 1.1}
   mouseDetectDistance: 3
   indicatorCircle: {fileID: 6302496366263937867}
+  objCollider: {fileID: 0}
 --- !u!1 &8907455548570525100
 GameObject:
   m_ObjectHideFlags: 0
