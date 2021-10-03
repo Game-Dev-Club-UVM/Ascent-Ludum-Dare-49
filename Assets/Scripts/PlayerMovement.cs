@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Transform playerGFX;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
     [SerializeField] private Transform ceilingCheck;
@@ -76,6 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipCharacter(){
         facingRight = !facingRight;
-        transform.Rotate(0, 180, 0);
+        playerGFX.Rotate(0, 180, 0);
 	}
 }
