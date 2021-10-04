@@ -22,6 +22,9 @@ public class DisappearingPlatform : MonoBehaviour
     public Material normalMat;
     public Material transparentMat;
 
+    public Material normalMatControlled;
+    public Material transparentMatControlled;
+
     public bool isControlled = false;
     public float mouseDetectDistance;
     private Vector3 mouseScreenPos;
@@ -58,15 +61,9 @@ public class DisappearingPlatform : MonoBehaviour
             // if object is being right clicked...
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-				if (!isControlled)
-				{
-                    setIsControlled();
-				}
-				else
-				{
-                    isControlled = false;
-                }
+                setIsControlled(!isControlled);
             }
+            
         }
         else
         {
@@ -106,7 +103,7 @@ public class DisappearingPlatform : MonoBehaviour
             }
 
             timeOfLastSwitch = Time.time;
-        }
+		}
 
 
         // Toggle the texture, if relevant
@@ -117,12 +114,28 @@ public class DisappearingPlatform : MonoBehaviour
                 if(textureEnabled)
                 {
                     textureEnabled = false;
-                    this.GetComponent<Renderer>().material = transparentMat;
+					if (isControlled)
+					{
+                        this.GetComponent<Renderer>().material = transparentMatControlled;
+                    }
+					else
+					{
+                        this.GetComponent<Renderer>().material = transparentMat;
+                    }
+                    
                 }
                 else
                 {
                     textureEnabled = true;
-                    this.GetComponent<Renderer>().material = normalMat;
+                    if (isControlled)
+                    {
+                        this.GetComponent<Renderer>().material = normalMatControlled;
+                    }
+                    else
+                    {
+                        this.GetComponent<Renderer>().material = normalMat;
+                    }
+                    
                 }
                 timeOfLastFlash = Time.time;
             }
@@ -135,11 +148,30 @@ public class DisappearingPlatform : MonoBehaviour
         return input + Random.Range(-variability, variability);
     }
 
-    private void setIsControlled()
+    private void setIsControlled(bool c)
 	{
-        isControlled = true;
-        status = PlatformStatus.Active;
-        GetComponent<Renderer>().material.SetColor("_Color", Color.black);
-        this.GetComponent<BoxCollider2D>().enabled = true;
+        isControlled = c;
+        if (isControlled)
+        {
+            if (status == PlatformStatus.Inactive)
+            {
+                this.GetComponent<Renderer>().material = transparentMatControlled;
+            }
+            else
+            {
+                this.GetComponent<Renderer>().material = normalMatControlled;
+            }
+        }
+        else
+        {
+            if (status == PlatformStatus.Inactive)
+            {
+                this.GetComponent<Renderer>().material = transparentMat;
+            }
+            else
+            {
+                this.GetComponent<Renderer>().material = normalMat;
+            }
+        }   
     }
 }
