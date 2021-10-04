@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 439103750263798065}
   - component: {fileID: 439103750263798066}
+  - component: {fileID: 8028320118734561785}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 439103750263798064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.06, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.5272603, y: 3.5272603, z: 3.5272603}
   m_Children: []
   m_Father: {fileID: 439103750989378152}
   m_RootOrder: 1
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b703690e32817ac4ab609b79441dfd5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8ff8cf17afa6ed4da681542a509ff9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,6 +84,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8028320118734561785
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439103750263798064}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dcd5276093caf114788d81f8fc9f4b3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &439103750764743978
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,8 +182,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
-  m_Size: {x: 1, y: 1.7}
+  m_Offset: {x: -0.0060863495, y: -0.18782425}
+  m_Size: {x: 0.9756508, y: 1.9069853}
   m_Direction: 0
 --- !u!50 &439103750989378154
 Rigidbody2D:
@@ -208,6 +228,7 @@ MonoBehaviour:
   checkRadius: 0.2
   maxJumpCount: 2
   hasPowers: 0
+  animator: {fileID: 8028320118734561785}
 --- !u!1 &4089001781892635985
 GameObject:
   m_ObjectHideFlags: 0
