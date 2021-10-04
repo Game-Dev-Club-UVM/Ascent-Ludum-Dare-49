@@ -7,9 +7,7 @@ public class stabilityScript2 : MonoBehaviour
 {
     // how an object moves erraticly can be decided in the inspector
     public bool canRotate;
-    public bool canMove;
     public bool canScale;
-
     public bool isClicking; // if object is being clicked
     public float timer;
 
@@ -33,8 +31,10 @@ public class stabilityScript2 : MonoBehaviour
 
     public Collider2D objCollider;
 
+
     private void Awake()
     {
+
         setRotationSpeed(); // on awake, set rotation speed for the first time
         originalScale = gameObject.transform.localScale; // save a copy of the original scale
         isClicking = false;
@@ -44,6 +44,7 @@ public class stabilityScript2 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (isClicking)
         {
             if (transform.position != mouseWorldPos)
@@ -54,8 +55,10 @@ public class stabilityScript2 : MonoBehaviour
 
         if (timer > 0)
         {
+            
             if (canRotate)
             {
+                
                 rotateObject(rotationSpeed); // while the timer hasn't reach 0 and we can rotate, rotate the object
             }
             timer -= timing;
@@ -76,6 +79,17 @@ public class stabilityScript2 : MonoBehaviour
     }
     private void Update()
     {
+        if (!isClicking)
+        {
+            timing = Time.fixedDeltaTime;
+            
+        } else {
+            timing = Time.fixedDeltaTime * .1f;
+            
+        }
+        if (!PlayerMovement.playerScriptInstance.hasPowers) {
+            return;
+        }
         // convert mouse pos to world space
         mouseScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
         mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
@@ -128,14 +142,8 @@ public class stabilityScript2 : MonoBehaviour
             GetComponent<Renderer>().material.SetColor("_Color", Color.white);
             objCollider.enabled = true;
         }
-        if (!isClicking)
-        {
-            timing = Time.fixedDeltaTime;
-            
-        } else {
-            timing = Time.fixedDeltaTime * .1f;
-            
-        }
+        
+
     }
     private void setRotationSpeed()
     {

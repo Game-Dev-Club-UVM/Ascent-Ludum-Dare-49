@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private int maxJumpCount;
 
-
+    public static PlayerMovement playerScriptInstance;
     private Rigidbody2D rb;
     private bool facingRight = true;
     private float moveDirection;
@@ -22,13 +22,16 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = false;
     private int jumpCount;
 
+    public bool hasPowers;
     // Awake is called before the Start, in the step phase in untiy
     private void Awake(){
+        
         rb = GetComponent<Rigidbody2D>();
 	}
 
 	// Start is called before the first frame update
 	void Start(){
+        playerScriptInstance = GetComponent<PlayerMovement>();
         jumpCount = maxJumpCount;
     }
 
