@@ -87,8 +87,12 @@ public class stabilityScript2 : MonoBehaviour
 
             // if object is being right clicked...
             if (Input.GetKeyDown(KeyCode.Mouse1)) {
+                if (!isClicking) {
+                    objCollider.enabled = false;
+                } else {
+                    objCollider.enabled = true;
+                }
                 
-                objCollider.enabled = !objCollider.enabled;
                 // go into slow motion
                 canRotate = !canRotate;
             }
@@ -105,7 +109,12 @@ public class stabilityScript2 : MonoBehaviour
 
         if (!canRotate) {
             GetComponent<Renderer>().material.SetColor("_Color", Color.black);  
-            objCollider.enabled = true;
+            if (isClicking) {
+                objCollider.enabled = false;
+            } else {
+                objCollider.enabled = true;
+            }
+            
         }
  
         if (Input.GetKeyUp(KeyCode.Mouse0))

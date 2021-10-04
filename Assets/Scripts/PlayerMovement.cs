@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
 		if (isJumping)
         {
+            rb.velocity = new Vector2(moveDirection * moveSpeed, 0);
             rb.AddForce(new Vector2(0f, jumpForce));
             jumpCount--;
             isJumping = false;
