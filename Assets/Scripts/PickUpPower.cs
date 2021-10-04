@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PickUpPower : MonoBehaviour
 {
-	[SerializeField] GameObject enable;
-
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		
+		if(collision.tag == "Player")
+		{
+			PlayerMovement.playerScriptInstance.hasPowers = true;
+			this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+		}
 	}
 }

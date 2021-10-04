@@ -805,6 +805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plat 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1420054728325639965, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
+      propertyPath: indicatorCircle
+      value: 
+      objectReference: {fileID: 801593660}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
 --- !u!4 &247144755 stripped
@@ -995,6 +999,14 @@ PrefabInstance:
     - target: {fileID: 1153273082270204230, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
       propertyPath: m_Name
       value: Plat 0.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1420054728325639965, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
+      propertyPath: indicatorCircle
+      value: 
+      objectReference: {fileID: 1123403427}
+    - target: {fileID: 2760059893570474880, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
@@ -1224,7 +1236,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f6e2ac8a6a1b2b44996c33b0592e7f0d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.366
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2552,6 +2564,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afb5bab5f0b22174796daf34cf857f82, type: 3}
+--- !u!1 &801593660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2760059893570474880, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
+  m_PrefabInstance: {fileID: 233966822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &807571626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3368,6 +3385,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 741333127589579814, guid: 7ebd0d0a302f5f04fac152806bbf1864, type: 3}
   m_PrefabInstance: {fileID: 724383052}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1080470151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2760059893570474880, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
+  m_PrefabInstance: {fileID: 2116312537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1090533657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6585993655266293712, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
@@ -3497,6 +3519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37fad64f45b38f6498ccac77f2fa8bdb, type: 3}
+--- !u!1 &1123403427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2760059893570474880, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
+  m_PrefabInstance: {fileID: 326802793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1127712213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6816,6 +6843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plat 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1420054728325639965, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
+      propertyPath: indicatorCircle
+      value: 
+      objectReference: {fileID: 1080470151}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5732f7b01319e3348bd587288f8e2c9d, type: 3}
 --- !u!1001 &2122457894
@@ -6968,6 +6999,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 439103750764743979, guid: 556247a867d836645a752e82c20113f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 439103750989378151, guid: 556247a867d836645a752e82c20113f3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7035,6 +7070,10 @@ PrefabInstance:
     - target: {fileID: 4089001781892635985, guid: 556247a867d836645a752e82c20113f3, type: 3}
       propertyPath: m_TagString
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463856396301752254, guid: 556247a867d836645a752e82c20113f3, type: 3}
+      propertyPath: m_Volume
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 6528492763365793603, guid: 556247a867d836645a752e82c20113f3, type: 3}
       propertyPath: m_Depth
@@ -7351,17 +7390,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup 3.0
       objectReference: {fileID: 0}
+    - target: {fileID: 7141598310394763025, guid: 9b7d54fe761093248ad09dd73bb16b6c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7141598310394763026, guid: 9b7d54fe761093248ad09dd73bb16b6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
     - target: {fileID: 7141598310394763027, guid: 9b7d54fe761093248ad09dd73bb16b6c, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7141598310394763027, guid: 9b7d54fe761093248ad09dd73bb16b6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 7141598310394763027, guid: 9b7d54fe761093248ad09dd73bb16b6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 65.5
+      value: 68.8
       objectReference: {fileID: 0}
     - target: {fileID: 7141598310394763027, guid: 9b7d54fe761093248ad09dd73bb16b6c, type: 3}
       propertyPath: m_LocalPosition.z

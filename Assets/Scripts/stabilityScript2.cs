@@ -31,6 +31,8 @@ public class stabilityScript2 : MonoBehaviour
 
     public Collider2D objCollider;
 
+    public Color platformDefaultColor;
+
 
     private void Awake()
     {
@@ -133,13 +135,13 @@ public class stabilityScript2 : MonoBehaviour
  
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            GetComponent<Renderer>().material.SetColor("_Color", platformDefaultColor);
             objCollider.enabled = true;
             isClicking = false;
         }
 
         if (!isClicking && canRotate) {
-            GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            GetComponent<Renderer>().material.SetColor("_Color", platformDefaultColor);
             objCollider.enabled = true;
         }
         

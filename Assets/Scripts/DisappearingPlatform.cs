@@ -22,9 +22,14 @@ public class DisappearingPlatform : MonoBehaviour
     public Material normalMat;
     public Material transparentMat;
 
+    public bool isControlled = false;
+    public float mouseDetectDistance;
+    private Vector3 mouseScreenPos;
+    private Vector3 mouseWorldPos;
+    [SerializeField] private GameObject indicatorCircle;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         timeOfLastSwitch = Time.time;
         currentStateTimeLimit =  activeTimeLimit;
@@ -33,8 +38,50 @@ public class DisappearingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Controll
+        // convert mouse pos to world space
+        mouseScreenPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane);
+        mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+
+        // if mouse is within the specified radius of the object...
+        if (PlayerMovement.playerScriptInstance.hasPowers && Vector2.Distance(mouseWorldPos, gameObject.transform.position) < mouseDetectDistance)
+        {
+            if (indicatorCircle == null) 
+            { 
+                return; 
+            }else
+			{
+                indicatorCircle.SetActive(true);
+            }
+            
+
+            // if object is being right clicked...
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+				if (!isControlled)
+				{
+                    setIsControlled();
+				}
+				else
+				{
+                    isControlled = false;
+                }
+            }
+        }
+        else
+        {
+            if (indicatorCircle == null) 
+            { 
+                return; 
+            }else
+            {
+                indicatorCircle.SetActive(false);
+            }
+        }
+
+
         // Switch states
-        if(Time.time - timeOfLastSwitch > currentStateTimeLimit)
+        if (Time.time - timeOfLastSwitch > currentStateTimeLimit && !isControlled)
         {
             if(status == PlatformStatus.Active)
             {
@@ -61,6 +108,7 @@ public class DisappearingPlatform : MonoBehaviour
             timeOfLastSwitch = Time.time;
         }
 
+
         // Toggle the texture, if relevant
         if(status == PlatformStatus.Warning)
         {
@@ -85,5 +133,13 @@ public class DisappearingPlatform : MonoBehaviour
     private float GetRandomNear(float input, float variability)
     {
         return input + Random.Range(-variability, variability);
+    }
+
+    private void setIsControlled()
+	{
+        isControlled = true;
+        status = PlatformStatus.Active;
+        GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+        this.GetComponent<BoxCollider2D>().enabled = true;
     }
 }

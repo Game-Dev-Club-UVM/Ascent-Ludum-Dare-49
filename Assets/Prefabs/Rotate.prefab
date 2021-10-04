@@ -221,7 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canRotate: 1
-  canMove: 0
   canScale: 1
   isClicking: 0
   timer: 3
@@ -231,6 +230,7 @@ MonoBehaviour:
   mouseDetectDistance: 3
   indicatorCircle: {fileID: 6302496366263937867}
   objCollider: {fileID: 0}
+  platformDefaultColor: {r: 0.20000002, g: 0.86666673, b: 0.38823533, a: 1}
 --- !u!1 &8907455548570525100
 GameObject:
   m_ObjectHideFlags: 0
