@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5322704938245224898}
   m_Layer: 3
-  m_Name: UnstableTemplate
+  m_Name: Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
