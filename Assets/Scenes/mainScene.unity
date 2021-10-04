@@ -11049,8 +11049,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 439103750989378153, guid: 556247a867d836645a752e82c20113f3, type: 3}
+      propertyPath: hasPowers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 439103750989378153, guid: 556247a867d836645a752e82c20113f3, type: 3}
       propertyPath: jumpForce
-      value: 500
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 439103750989378153, guid: 556247a867d836645a752e82c20113f3, type: 3}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 439103750989378154, guid: 556247a867d836645a752e82c20113f3, type: 3}
+      propertyPath: m_GravityScale
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 439103750989378155, guid: 556247a867d836645a752e82c20113f3, type: 3}
       propertyPath: m_Size.x

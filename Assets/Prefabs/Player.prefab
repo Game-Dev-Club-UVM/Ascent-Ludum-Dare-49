@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGFX: {fileID: 439103750263798065}
   moveSpeed: 5
-  jumpForce: 700
+  jumpForce: 1200
   groundCheck: {fileID: 439103750764743979}
   groundObjects:
     serializedVersion: 2
