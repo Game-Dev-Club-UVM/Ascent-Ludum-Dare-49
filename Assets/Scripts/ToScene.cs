@@ -10,4 +10,12 @@ public class ToScene : MonoBehaviour
      public void ToGame(){
          SceneManager.LoadScene("mainScene");
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if(collision.tag == "Player")
+		{
+			ToMenu();
+		}
+	}
 }
