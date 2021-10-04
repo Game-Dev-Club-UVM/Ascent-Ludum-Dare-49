@@ -2711,7 +2711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_Size.y
-      value: 40
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
@@ -2719,7 +2719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 40
+      value: 84.295044
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293715, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_Size.y
@@ -2890,6 +2890,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 312965276}
     m_Modifications:
+    - target: {fileID: 6557079918051083268, guid: 49c377768bfa3a2469e5b8f71f44d890, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557079918051083268, guid: 49c377768bfa3a2469e5b8f71f44d890, type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6557079918051083268, guid: 49c377768bfa3a2469e5b8f71f44d890, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6557079918051083269, guid: 49c377768bfa3a2469e5b8f71f44d890, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3335,6 +3347,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ebd0d0a302f5f04fac152806bbf1864, type: 3}
+--- !u!1 &728322807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7141598310394763024, guid: 6c309a9e8362068458394203aeaa9c4d, type: 3}
+  m_PrefabInstance: {fileID: 1614111695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &728322808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728322807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3670ca0fd06ec364e841b7cf6ba3b441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &751592332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6557079918051083269, guid: 49c377768bfa3a2469e5b8f71f44d890, type: 3}
@@ -4055,24 +4084,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
+      propertyPath: m_Size.x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_Size.y
-      value: 40
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 138.5357
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 84.295044
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293715, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_Size.x
@@ -8476,7 +8513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2870690924633149903, guid: afb5bab5f0b22174796daf34cf857f82, type: 3}
       propertyPath: m_Size.y
-      value: 40
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 2870690924633149903, guid: afb5bab5f0b22174796daf34cf857f82, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
@@ -8484,7 +8521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2870690924633149903, guid: afb5bab5f0b22174796daf34cf857f82, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 40
+      value: 76.87482
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afb5bab5f0b22174796daf34cf857f82, type: 3}
@@ -10821,7 +10858,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
+      propertyPath: m_Size.y
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
       propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585993655266293714, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
       value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 6585993655266293715, guid: 9f4394118d203c844a9ab9376b167cb0, type: 3}
